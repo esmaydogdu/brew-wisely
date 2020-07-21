@@ -1,0 +1,84 @@
+*{
+  font-family: 'Ubuntu', sans-serif;
+}
+body{
+  background-color: #fefff4;
+}
+.hdr-msg{
+  text-align: center;
+  font-size: 28px;
+  font-weight: 300;
+  letter-spacing: 1px;
+  color: #888;
+  margin: 20px auto;
+}
+.record-hdr{
+    color: #bdbdbd;
+    font-weight: 100;
+    font-size: 19px;
+    text-align: center;
+}
+ul.record-list{
+  list-style: none;
+  max-height: 300px;
+    overflow-y: auto;
+}
+ul.record-list li{
+  line-height: 25px;
+}
+.old-time-record{
+    text-decoration: line-through;
+    color: #777;
+    font-weight: 300;
+}
+.disabled.btn-ready-bev{
+  pointer-events:none;
+}
+.clear-one-bev{
+position:absolute;
+bottom:10px;
+left:0;
+right:0;
+margin:0 auto;
+display: flex;
+align-items: center;
+justify-content: center;
+max-width:230px;
+color:#fff;
+}
+.btn-warning:hover{
+  color:#fff;
+}
+.clear-record{
+  color:#fff;
+  display: flex;
+margin: 0 auto;
+max-width: 190px;
+align-items: center;
+justify-content: center;
+
+}
+.clear-record img{
+  max-width:35px;
+}
+
+ul.record-list li:last-child{
+  color:#333;
+
+}
+
+.btn-ready-bev{
+position:absolute;
+bottom:60px;
+left:0;
+right:0;
+margin:0 auto;
+display: flex;
+align-items: center;
+justify-content: center;
+max-width:280px;
+}
+.btn-ready-bev img{
+  margin-right: 10px;
+max-width:60px;
+}

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+          integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400&display=swap" rel="stylesheet">
+</head>
+<body>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12"><div class="hdr-msg">Brew Wisely<br>Enjoy The Fresh Drink</div></div>
+    <div class="col-md-12"><div class="row mt-2" id="drinks-area"></div></div>
+</div>
+  <div class="col-md-12 my-5">
+  <div class="btn btn-warning clear-record"><img src="trash.svg">Clear All Records</div>
+</div>
+  </div>
+</div>
+</body>
+</html>
+<script type="text/javascript">
+    var json = '{"Tea":{"brew":3000,"path":"teapot.svg"},"Coffee":{"brew":5000,"path":"coffeepot.svg"}}';
+    var drinks = jQuery.parseJSON( json );
+
+    $(document).ready(function () {
+
+        jQuery.each(drinks, function (index, value) {
+            $('#drinks-area').append('<div class="drink-cont col-md-5 mx-auto mb-5 mb-md-0" style="min-height: 500px; border:1px solid #e1e1e1"><div class="record-cont"><div class="record-hdr mt-2">'+ index +' Records</div><ul class="record-list mt-3"></ul></div><div class="btn btn-success btn-ready-bev" id="' + index + '"><img src="'+ value.path +'">Prepare ' + index +  '</div><div class="btn btn-warning clear-one-bev" id="clear'+index+'">Clear ' + index +  ' records</div>');
+        })
+
+    });
+    var myInterval = setInterval(function () {
+            clear();
+        },60000);
+
+    $(document).on('click', '.btn-ready-bev', function () {
+        let bev = $(this).closest('.drink-cont');
+        let name = $(this).attr('id');
+        bev.find('.record-list').find('li').addClass('old-time-record');
+        let dt = new Date();
+        let time = dt.getHours() + ":" + (dt.getMinutes()<10?'0':'') + dt.getMinutes() + ":" + (dt.getSeconds()<10?'0':'') + dt.getSeconds();
+        bev.find('.record-list').append('<li>Fresh '+name+'&nbsp;prep started at&nbsp;'+time+'</li>');
+        $(this).addClass("disabled");
+      $('ul.record-list').scrollTop($('ul.record-list')[0].scrollHeight);
+        setTimeout(function () {
+            let dt2 = new Date();
+            let time2 = dt2.getHours() + ":" + (dt2.getMinutes()<10?'0':'') + dt2.getMinutes() + ":" +(dt2.getSeconds()<10?'0':'') + dt2.getSeconds();
+            bev.find('.record-list').find('li:last').remove();
+            bev.find('.record-list').append('<li>' + name+ '&nbsp;is brewed at:&nbsp;' + time2 + ' </li>')
+            //butonu aktif et
+            $('.btn-ready-bev').removeClass("disabled");
+            $('ul.record-list').scrollTop($('ul.record-list')[0].scrollHeight);
+        },drinks[name].brew)
+
+    });
+    $(document).on('click', '.clear-one-bev', function () {
+
+        let bevrecord = $(this).closest('.drink-cont');
+        bevrecord.find('.record-list').find('li').remove();
+
+    });
+
+    $(document).on('click', '.clear-record', function () {
+        $('.record-list').find('li').remove();
+
+    });
+
+
+    function clear() {
+        let dt3 = new Date();
+        let time3 = dt3.getHours() + ":" + (dt3.getMinutes()<10?'0':'') + dt3.getMinutes();
+        let checktime = '23:59';
+        if(time3.toString() == checktime){
+          $('.record-list').find('li').remove();
+        }
+        //if time 23.59
+        //remove inside ul
+    }
+</script>
