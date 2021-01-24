@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+      integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+      crossorigin="anonymous"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="container" id="app">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="hdr-msg">Brew Wisely<br />Enjoy The Fresh Drink</div>
+        </div>
+        <div class="col-md-12">
+          <div class="row">
+            <input v-model="drinkName" />
+            <button @click="addDrink">Add Drink</button>
+          </div>
+          <div class="row mt-2" id="drinks-area">
+            <div
+              class="drink-cont col-md-5 mx-auto mb-5 mb-md-0"
+              style="min-height: 500px; border: 1px solid #e1e1e1"
+              v-for="drink in drinks"
+            >
+              <div class="record-cont">
+                <div class="record-hdr mt-2">{{drink.name}} Records</div>
+                <input v-model="drink.name" />
+                <input v-model="drink.brew" />
+
+                <ul class="record-list mt-3">
+                  <li v-for="record in drink.records">
+                    <span v-if="record.isFinished">
+                      {{drink.name}}&nbsp;is brewed
+                      at:&nbsp;{{format(record.end)}}
+                    </span>
+                    <span v-else>
+                      Fresh {{drink.name}}&nbsp;prep
+                      started:&nbsp;{{format(record.start)}}
+                    </span>
+                  </li>
+                </ul>
+              </div>
+              <div
+                @click="addRecord(drink)"
+                class="btn btn-success btn-ready-bev"
+                id="Tea"
+              >
+                <img :src="drink.path" />Prepare {{drink.name}}
+              </div>
+              <div class="btn btn-warning clear-one-bev" id="clearTea">
+                Clear {{drink.name}} records
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-12 my-5">
+        <div class="btn btn-warning clear-record">
+          <img src="trash.svg" />Clear All Records
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
