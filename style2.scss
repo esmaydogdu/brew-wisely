@@ -66,6 +66,9 @@ body {
                             }
                         }
                     }
+                    button[disabled="disabled"].prepDrinkBtn {
+                        cursor: not-allowed;
+                    }
                     .prepDrinkBtn {
                         margin: 0 auto;
                         display: flex;

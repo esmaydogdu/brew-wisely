@@ -58,7 +58,12 @@ var app = new Vue({
       });
     }, 1000);
   },
-  //sil butonları var: filter ile sileceksin çünkü isfinished true olanları sileceğiz
+
   //bi de backend ile mail atacagız içecekler hazır oldugunda
   //eklenen içeceği silmek
+
+  //++TODO1: yeni bi record false'tan true'ya dönene kadar buton disabled olsun.
+  //TODO2: yeni bir record true oldugunda eski kayıtlara class eklensin.
+  //TODO3:sil butonları var: filter ile sileceksin çünkü isfinished true olanları sileceğiz
+  //TODO4: brew time inputlarını saniye olarak alıp, içeride düzenlemek
 });

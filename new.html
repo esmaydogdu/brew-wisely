@@ -40,9 +40,9 @@
               Add Drink
             </button>
           </div>
-          <div class="row mt-5" id="drinksArea">
+          <div class="row mt-5 d-flex justify-content-between" id="drinksArea">
             <div
-              class="drinkCont col-md-5 px-2 py-3 mx-auto mb-5 mb-md-0"
+              class="drinkCont col-md-5 px-2 py-3 mx-1 mb-3"
               v-for="drink in drinks"
             >
               <div class="records">
@@ -60,15 +60,15 @@
                   </li>
                 </ul>
               </div>
-              <div
+              <button
                 @click="addRecord(drink)"
                 class="btn btn-info prepDrinkBtn"
                 id="Tea"
-                v-bind:class="{ 'disabledBtn': drink.isFinished}"
+                :disabled="drink.records[drink.records.length - 1] && !drink.records[drink.records.length - 1].isFinished"
               >
                 <img :src="drink.path" />
                 <!-- Prepare {{drink.name}} -->
-              </div>
+              </button>
               <div class="btn btn-warning clearRecordBtn mt-2" id="clearTea">
                 Clear {{drink.name}} records
               </div>

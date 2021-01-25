@@ -91,6 +91,10 @@ body .container .row #drinksArea .drinkCont .records .recordList .record:last-ch
   color: #333;
 }
 
+body .container .row #drinksArea .drinkCont button[disabled="disabled"].prepDrinkBtn {
+  cursor: not-allowed;
+}
+
 body .container .row #drinksArea .drinkCont .prepDrinkBtn {
   margin: 0 auto;
   display: -webkit-box;
