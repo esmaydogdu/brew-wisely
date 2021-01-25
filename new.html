@@ -10,8 +10,8 @@
       integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
       crossorigin="anonymous"
     />
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <link rel="stylesheet" href="style.css" />
+
+    <link rel="stylesheet" href="style2.css" />
     <link
       href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400&display=swap"
       rel="stylesheet"
@@ -22,25 +22,33 @@
       <div class="row">
         <div class="col-md-12">
           <div class="hdr-msg">Brew Wisely<br />Enjoy The Fresh Drink</div>
+          <div class="hdr-desc">
+            Automate your tasty drinks at office, reach the freshest sip
+          </div>
         </div>
         <div class="col-md-12">
-          <div class="row">
-            <input v-model="drinkName" />
-            <button @click="addDrink">Add Drink</button>
+          <div class="row input-group addNewDrinkCont my-3">
+            <span div class="addNewDrinkDesc mr-2"
+              >You can add a new drink here:</span
+            >
+            <input
+              class="addDrinkInput form-control"
+              type="text"
+              v-model="drinkName"
+            />
+            <button @click="addDrink" class="addDrinkBtn btn btn-info">
+              Add Drink
+            </button>
           </div>
-          <div class="row mt-2" id="drinks-area">
+          <div class="row mt-5" id="drinksArea">
             <div
-              class="drink-cont col-md-5 mx-auto mb-5 mb-md-0"
-              style="min-height: 500px; border: 1px solid #e1e1e1"
+              class="drinkCont col-md-5 px-2 py-3 mx-auto mb-5 mb-md-0"
               v-for="drink in drinks"
             >
-              <div class="record-cont">
-                <div class="record-hdr mt-2">{{drink.name}} Records</div>
-                <input v-model="drink.name" />
-                <input v-model="drink.brew" />
-
-                <ul class="record-list mt-3">
-                  <li v-for="record in drink.records">
+              <div class="records">
+                <div class="recordHdr">{{drink.name}} Records</div>
+                <ul class="recorList mt-3">
+                  <li class="record" v-for="record in drink.records">
                     <span v-if="record.isFinished">
                       {{drink.name}}&nbsp;is brewed
                       at:&nbsp;{{format(record.end)}}
@@ -54,21 +62,33 @@
               </div>
               <div
                 @click="addRecord(drink)"
-                class="btn btn-success btn-ready-bev"
+                class="btn btn-info prepDrinkBtn"
                 id="Tea"
+                v-bind:class="{ 'disabledBtn': drink.isFinished}"
               >
-                <img :src="drink.path" />Prepare {{drink.name}}
+                <img :src="drink.path" />
+                <!-- Prepare {{drink.name}} -->
               </div>
-              <div class="btn btn-warning clear-one-bev" id="clearTea">
+              <div class="btn btn-warning clearRecordBtn mt-2" id="clearTea">
                 Clear {{drink.name}} records
+              </div>
+              <div class="editRecord">
+                <div class="mt-1">
+                  <span>Edit drink name:</span>
+                  <input v-model="drink.name" class="form-control" />
+                </div>
+                <div class="mt-1">
+                  <span>Edit brew time(seconds):</span>
+                  <input v-model="drink.brew" class="form-control" />
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-      <div class="col-md-12 my-5">
-        <div class="btn btn-warning clear-record">
-          <img src="trash.svg" />Clear All Records
+        <div class="col-md-12 my-4">
+          <div class="btn btn-warning clearRecordsBtn">
+            <img src="trash.svg" class="mr-2" />Clear All Records
+          </div>
         </div>
       </div>
     </div>

@@ -60,4 +60,5 @@ var app = new Vue({
   },
   //sil butonları var: filter ile sileceksin çünkü isfinished true olanları sileceğiz
   //bi de backend ile mail atacagız içecekler hazır oldugunda
+  //eklenen içeceği silmek
 });

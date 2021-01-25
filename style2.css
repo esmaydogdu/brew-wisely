@@ -1,0 +1,197 @@
+* {
+  font-family: "Ubuntu", sans-serif;
+}
+
+body {
+  background-color: #fefff4;
+}
+
+body .container {
+  max-width: 90%;
+}
+
+body .container .row .hdr-msg {
+  text-align: center;
+  font-size: 28px;
+  font-weight: 300;
+  letter-spacing: 1px;
+  color: #888;
+  margin: 20px auto;
+}
+
+body .container .row .hdr-desc {
+  text-align: center;
+  font-size: 22px;
+  font-weight: 300;
+  color: #999;
+  margin: 10px auto;
+}
+
+body .container .row .addNewDrinkCont {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+body .container .row .addNewDrinkCont .addDrinkInput {
+  max-width: 200px;
+}
+
+body .container .row .addNewDrinkCont .addDrinkBtn {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+body .container .row #drinksArea .drinkCont {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  min-height: 600px;
+  border: 1px solid #e1e1e1;
+}
+
+body .container .row #drinksArea .drinkCont .records {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+
+body .container .row #drinksArea .drinkCont .records .recordHdr {
+  color: #bdbdbd;
+  font-weight: 100;
+  font-size: 19px;
+  text-align: center;
+}
+
+body .container .row #drinksArea .drinkCont .records .recordList {
+  list-style: none;
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+body .container .row #drinksArea .drinkCont .records .recordList .record {
+  line-height: 25px;
+}
+
+body .container .row #drinksArea .drinkCont .records .recordList .record:last-child {
+  color: #333;
+}
+
+body .container .row #drinksArea .drinkCont .prepDrinkBtn {
+  margin: 0 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+}
+
+body .container .row #drinksArea .drinkCont .prepDrinkBtn img {
+  margin-right: 10px;
+  max-width: 60px;
+}
+
+body .container .row #drinksArea .drinkCont .clearRecordBtn {
+  margin: 0 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  max-width: 230px;
+  color: #fff;
+}
+
+body .container .row #drinksArea .drinkCont .clearRecordBtn img {
+  max-width: 35px;
+}
+
+body .container .row #drinksArea .drinkCont .editRecord {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  padding: 10px;
+  margin-top: 10px;
+  border-radius: 5px;
+  background-color: #fff1d1;
+  -webkit-box-shadow: #ccc 0px 2px 4px 0px;
+          box-shadow: #ccc 0px 2px 4px 0px;
+}
+
+body .container .row #drinksArea .drinkCont .editRecord > div {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+body .container .row #drinksArea .drinkCont .editRecord > div span {
+  font-size: 15px;
+  color: #666;
+}
+
+body .container .row #drinksArea .drinkCont .editRecord > div input {
+  max-width: 100px;
+}
+
+body .container .row .clearRecordsBtn {
+  color: #fff;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 0 auto;
+  max-width: 220px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+body .container .row .clearRecordsBtn img {
+  max-width: 40px;
+}
+/*# sourceMappingURL=style2.css.map */
