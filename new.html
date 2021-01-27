@@ -64,12 +64,16 @@
                 @click="addRecord(drink)"
                 class="btn btn-info prepDrinkBtn"
                 id="Tea"
-                :disabled="drink.records[drink.records.length - 1] && !drink.records[drink.records.length - 1].isFinished"
+                :disabled=" btnDisabled(drink)"
               >
                 <img :src="drink.path" />
                 <!-- Prepare {{drink.name}} -->
               </button>
-              <div class="btn btn-warning clearRecordBtn mt-2" id="clearTea">
+              <div
+                class="btn btn-warning clearRecordBtn mt-2"
+                id="clearTea"
+                @click="clearRecord(drink)"
+              >
                 Clear {{drink.name}} records
               </div>
               <div class="editRecord">
@@ -79,14 +83,18 @@
                 </div>
                 <div class="mt-1">
                   <span>Edit brew time(seconds):</span>
-                  <input v-model="drink.brew" class="form-control" />
+                  <input
+                    type="number"
+                    v-model.number="drink.brew"
+                    class="form-control"
+                  />
                 </div>
               </div>
             </div>
           </div>
         </div>
         <div class="col-md-12 my-4">
-          <div class="btn btn-warning clearRecordsBtn">
+          <div class="btn btn-warning clearRecordsBtn" @click="clearRecords()">
             <img src="trash.svg" class="mr-2" />Clear All Records
           </div>
         </div>
