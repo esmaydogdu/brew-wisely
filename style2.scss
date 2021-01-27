@@ -27,8 +27,7 @@ body {
                 flex-direction: row;
                 justify-content: center;
                 align-items: center;
-                .addNewDrinkDesc {
-                }
+
                 .addDrinkInput {
                     max-width: 200px;
                 }
@@ -60,8 +59,6 @@ body {
                                 line-height: 25px;
                                 &:last-child {
                                     color: #333;
-                                }
-                                span {
                                 }
                             }
                         }
