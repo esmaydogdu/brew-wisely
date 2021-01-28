@@ -3,6 +3,7 @@
 }
 body {
     background-color: #fefff4;
+
     .container {
         max-width: 90%;
         .row {
@@ -55,10 +56,17 @@ body {
                             list-style: none;
                             max-height: 300px;
                             overflow-y: auto;
+                            padding: 0 20px;
+
                             .record {
                                 line-height: 25px;
+                                font-size: 15px;
                                 &:last-child {
                                     color: #333;
+                                }
+                                &.lineThrough {
+                                    color: #666;
+                                    text-decoration: line-through;
                                 }
                             }
                         }
@@ -130,16 +138,3 @@ body {
         }
     }
 }
-
-// .old-time-record {
-//     text-decoration: line-through;
-//     color: #777;
-//     font-weight: 300;
-// }
-// .disabled.btn-ready-bev {
-//     pointer-events: none;
-// }
-
-// .btn-warning:hover {
-//     color: #fff;
-// }

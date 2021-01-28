@@ -47,8 +47,12 @@
             >
               <div class="records">
                 <div class="recordHdr">{{drink.name}} Records</div>
-                <ul class="recorList mt-3">
-                  <li class="record" v-for="record in drink.records">
+                <ul class="recordList mt-3">
+                  <li
+                    class="record"
+                    v-for="record in drink.records"
+                    v-bind:class="{ lineThrough: record.isLineThrough}"
+                  >
                     <span v-if="record.isFinished">
                       {{drink.name}}&nbsp;is brewed
                       at:&nbsp;{{format(record.end)}}

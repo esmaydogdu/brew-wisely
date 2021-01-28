@@ -36,15 +36,21 @@ var app = new Vue({
       ].join(":");
     },
     addRecord: function (drink) {
+      drink.records.map((record) => {
+        record.isLineThrough = true;
+      });
+
       const time = new Date();
       const start = time.valueOf();
       time.setMilliseconds(time.getMilliseconds() + drink.brew * 1000);
       const end = time.valueOf();
       const isFinished = false;
+      const isLineThrough = false;
       drink.records.push({
         start,
         end,
         isFinished,
+        isLineThrough,
       });
     },
     btnDisabled: function (drink) {
@@ -77,13 +83,4 @@ var app = new Vue({
       });
     }, 1000);
   },
-
-  //TODO2: yeni bir record true oldugunda eski kayıtlara class eklensin.
-
-  //clickte  eski record var mı kontrol edip onun içinde bir variable set edip sonra bu variable kontrolü ile recorda class ekleyebilirim
-
-  //++TODO1: (methoda almak)yeni bi record false'tan true'ya dönene kadar buton disabled olsun.
-  //++TODO3:sil butonları var: filter ile sileceksin çünkü isfinished true olanları sileceğiz
-  //++TODO4: brew time inputlarını saniye olarak alıp, içeride düzenlemek
-  //this ile hep debug yap, doğru yerde misin onu bak.
 });
