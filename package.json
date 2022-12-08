@@ -17,7 +17,7 @@
   },
   "homepage": "https://github.com/esmaydogdu/brew-wisely#readme",
   "dependencies": {
-    "express": "^4.17.1",
+    "express": "^4.18.2",
     "expressjs": "^1.0.1"
   }
 }
